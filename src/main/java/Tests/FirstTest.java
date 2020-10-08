@@ -14,6 +14,7 @@ public class FirstTest extends OptionsTests {
   }
     @Test
     public void myFirstTest() {
+      
       driver.navigate().to("http://www.google.com");
       driver.findElement(By.name("q")).sendKeys("webdriver");
       driver.findElement(By.id("tsf")).click();

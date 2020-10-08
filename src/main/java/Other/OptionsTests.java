@@ -1,5 +1,7 @@
 package Other;
 
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,6 +36,7 @@ public class OptionsTests {
   }
 
   // Создаём сам драйвер
+  @Before
   public void start() {
 
     var s = getChromeService();
@@ -41,14 +44,9 @@ public class OptionsTests {
 
     driver = new ChromeDriver(s, o);
 
-    final var options = new ChromeOptions();
-    options.addArguments("--disable-notifications");
-    options.setExperimentalOption("useAutomationExtension", false);
-    options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.IGNORE);
-
     wait = new WebDriverWait(driver, 10);
   }
-
+  @After
   public void stop() {
 
   }
